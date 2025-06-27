@@ -37,7 +37,7 @@ class Lunette extends Model
      * Relation
     */
     public function colors(){
-        return $this->belongsToMany(Lunette::class);
+        return $this->belongsToMany(Lunette::class, 'lunette_color');
     }
 
 }

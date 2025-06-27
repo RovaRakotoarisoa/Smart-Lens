@@ -14,18 +14,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lunette_color', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(Lunette::class)
-                  ->constrained()
-                  ->cascadeOnDelete()
-                  ->cascadeOnUpdate();
-            $table->foreignIdFor(Color::class)
-                  ->constrained()
-                  ->cascadeOnDelete()
-                  ->cascadeOnUpdate();
-        });
-
         Schema::create('lunettes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -37,12 +25,23 @@ return new class extends Migration
             $table->string('bridgeWidth');
             $table->string('templeWidth');
             $table->foreignIdFor(Type::class);
-            $table->foreignIdFor('lunette_color');
             $table->string('primaryimage');
             $table->string('secondaryimage')->nullable();
             $table->string('tertiaryimage')->nullable();
             $table->string('quadriimage')->nullable();
             $table->timestamp('created_at')->nullable();
+        });
+        
+        Schema::create('lunette_color', function (Blueprint $table) {
+            $table->id();
+            $table->foreignIdFor(Lunette::class)
+                  ->constrained()
+                  ->cascadeOnDelete()
+                  ->cascadeOnUpdate();
+            $table->foreignIdFor(Color::class)
+                  ->constrained()
+                  ->cascadeOnDelete()
+                  ->cascadeOnUpdate();
         });
     }
 
