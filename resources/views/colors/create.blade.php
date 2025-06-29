@@ -1,0 +1,1 @@
+<div> This is the CREATE VIEW FOR COLOR</div>

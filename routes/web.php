@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ColorController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -20,3 +21,9 @@ Route::middleware([
 Route::get('/', function () {
     return view('home');
 });
+
+/**
+ * All route for Color
+ */
+Route::get('/', [ColorController::class,'index']);
+Route::get('/colors/create', [ColorController::class,'create']);
