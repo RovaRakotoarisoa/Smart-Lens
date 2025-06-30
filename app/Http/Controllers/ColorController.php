@@ -25,11 +25,15 @@ class ColorController extends Controller
         // Authorize
 
         // Validate
-        $request->validate(
-            [
-                'color_name' =>'required|string|unique'
-            ]
-        );
+        $request->validate([
+                'color_name' => 'required|string|unique:colors,color_name'
+        ]);
+
+        //Dans update ce validate doit etre
+        // $request->validate([
+        //         'color_name' => 'required|string|unique:colors,color_name,'.$color->id
+        // ]);
+
 
         // Create
         Color::create(

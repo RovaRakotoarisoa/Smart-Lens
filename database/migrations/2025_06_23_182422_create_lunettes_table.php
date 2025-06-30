@@ -50,7 +50,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lunettes');
         Schema::dropIfExists('lunette_color');
+        Schema::dropIfExists('lunettes');
     }
 };
