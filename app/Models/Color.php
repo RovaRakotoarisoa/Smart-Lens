@@ -8,7 +8,8 @@ class Color extends Model
 {
 
     protected $fillable = [
-        'color_name'
+        'color_name',
+        'code_color'
     ];
 
     /** 

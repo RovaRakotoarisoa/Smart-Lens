@@ -25,5 +25,8 @@ Route::get('/', function () {
 /**
  * All route for Color
  */
-Route::get('/', [ColorController::class,'index']);
+Route::get('/', [ColorController::class,'index'])->name('home');
 Route::get('/colors/create', [ColorController::class,'create']);
+Route::post('/colors/store', [ColorController::class,'store'])->name('colors.store');
+Route::get('/colors/{color}/edit', [ColorController::class,'edit'])->name('colors.edit');
+Route::put('/colors/{color}', [ColorController::class,'update'])->name('colors.update');
