@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ColorController;
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\LunetteController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -25,8 +27,22 @@ Route::get('/', function () {
 /**
  * All route for Color
  */
-Route::get('/', [ColorController::class,'index'])->name('home');
+Route::get('/colors', [ColorController::class,'index'])->name('colors.index');
 Route::get('/colors/create', [ColorController::class,'create']);
 Route::post('/colors/store', [ColorController::class,'store'])->name('colors.store');
 Route::get('/colors/{color}/edit', [ColorController::class,'edit'])->name('colors.edit');
 Route::put('/colors/{color}', [ColorController::class,'update'])->name('colors.update');
+Route::delete('/colors/{color}', [ColorController::class,'destroy'])->name('colors.destroy');
+
+
+/**
+ * All route for Type
+ */
+Route::get('/types', [TypeController::class,'index'])->name('types.index');
+Route::get('/types/create', [TypeController::class,'create'])->name('types.create');
+Route::post('/types/store', [TypeController::class,'store'])->name('types.store');
+
+/**
+ * All route for Lunette
+ */
+Route::get('/lunettes', [LunetteController::class,'index'])->name('lunettes.index');

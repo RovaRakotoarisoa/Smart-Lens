@@ -8,10 +8,4 @@
     <section class="service">
         Services
     </section>
-    <hr>
-    <section>
-         @foreach ($colors as $color)
-            <div class=" font-extrabold">{{ $color->color_name }}</div>
-        @endforeach
-    </section>
 </x-layout>

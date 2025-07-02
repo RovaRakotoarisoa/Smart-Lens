@@ -12,7 +12,7 @@ class ColorController extends Controller
     {
         $colors = Color::all();
 
-        return view('home', compact('colors'));
+        return view('colors.index', compact('colors'));
     }
 
     public function create()
@@ -76,5 +76,16 @@ class ColorController extends Controller
 
         // Redirection
         return redirect()->route('home')->with('success', 'Couleur mis a jour');
+    }
+
+    public function destroy($id)
+    {
+        // Authorization
+
+        // Validation
+        Color::findOrFail($id)->delete();
+
+        // Redirection
+        return redirect()->route('colors.index')->with('success', 'Utilisateur supprimé avec succès!');
     }
 }
