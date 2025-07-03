@@ -5,8 +5,10 @@
         @method('POST')
 
         <div>
-            <label for="name">Name: </label>
-            <input type="text" name="name" id="name" class="">
+            <label for="type">Name: </label>
+            <input type="text" name="type" id="name" class="">
         </div>
+
+        <button>Valider</button>
     </form>
 </x-layout>

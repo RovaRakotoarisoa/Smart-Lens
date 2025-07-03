@@ -41,8 +41,12 @@ Route::delete('/colors/{color}', [ColorController::class,'destroy'])->name('colo
 Route::get('/types', [TypeController::class,'index'])->name('types.index');
 Route::get('/types/create', [TypeController::class,'create'])->name('types.create');
 Route::post('/types/store', [TypeController::class,'store'])->name('types.store');
+Route::get('/types/{type}/edit', [TypeController::class,'edit'])->name('types.edit');
+Route::put('/types/{type}', [TypeController::class,'update'])->name('types.update');
 
 /**
  * All route for Lunette
  */
 Route::get('/lunettes', [LunetteController::class,'index'])->name('lunettes.index');
+Route::get('/lunettes/create', [LunetteController::class,'create'])->name('lunettes.create');
+Route::post('/lunettes/store', [LunetteController::class,'store'])->name('lunettes.store');

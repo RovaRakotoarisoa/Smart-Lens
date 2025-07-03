@@ -27,15 +27,9 @@ class ColorController extends Controller
         // Validate
         $request->validate([
                 'color_name' => 'required|string|unique:colors,color_name',
-                'code_color' => 'required|required'
+                'code_color' => 'required'
         ]);
-
-        //Dans update ce validate doit etre
-        // $request->validate([
-        //         'color_name' => 'required|string|unique:colors,color_name,'.$color->id
-        // ]);
-
-
+        
         // Create
         Color::create(
             [
@@ -86,6 +80,6 @@ class ColorController extends Controller
         Color::findOrFail($id)->delete();
 
         // Redirection
-        return redirect()->route('colors.index')->with('success', 'Utilisateur supprimé avec succès!');
+        return redirect()->route('colors.index')->with('success', 'Couleur supprimé avec succès!');
     }
 }
