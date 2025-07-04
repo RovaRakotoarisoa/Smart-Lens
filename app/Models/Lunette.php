@@ -15,6 +15,7 @@ class Lunette extends Model
         'name',
         'price',
         'description',
+        'quantity',
         'type_id',
         'frameWidth',
         'lensWidth',
