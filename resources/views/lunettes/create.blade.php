@@ -9,6 +9,10 @@
             <input type="text" name="name" id="name" class="">
         </div>
         <div>
+            <label for="quantity">Quantity: </label>
+            <input type="number" name="quantity" id="quantity" class="">
+        </div>
+        <div>
             <label for="price">Price: </label>
             <input type="number" name="price" id="price" class="">
         </div>

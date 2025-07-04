@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('secondaryimage')->nullable();
             $table->string('tertiaryimage')->nullable();
             $table->string('quadriimage')->nullable();
-            // $table->timestamp('created_at')->nullable();
+            $table->timestamps();
         });
         
         Schema::create('lunette_color', function (Blueprint $table) {
