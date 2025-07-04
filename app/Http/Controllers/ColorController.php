@@ -39,7 +39,7 @@ class ColorController extends Controller
         );
 
         // Redirect
-        return redirect()->route('home')->with('success', 'color created');
+        return redirect()->route('colors.index')->with('success', 'color created');
     }
 
     public function edit($id)
