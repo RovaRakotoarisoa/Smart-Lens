@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lunette;
 use App\Models\Type;
+use App\Models\Color;
 
 class LunetteController extends Controller
 {
@@ -32,6 +33,7 @@ class LunetteController extends Controller
         $createLunetteData = $request->validate([
             'name'=> 'required|string|unique:lunettes,name',
             'price' => 'required',
+            'quantity' => 'required',
             'description' => 'required|string|max:255',
             'frameWidth' => 'required',
             'type_id' => 'required',
