@@ -30,6 +30,15 @@
             </select>
         </div>
         <div>
+             <h4>Couleurs disponibles :</h4>
+            @foreach($colors as $color)
+                <label>
+                    <input type="checkbox" name="colors[]" value="{{ $color->id }}">
+                    {{ $color->color_name }}
+                </label><br>
+            @endforeach
+        </div>
+        <div>
             <label for="frameWidth">Frame Width: </label>
             <input type="number" name="frameWidth" id="frameWidth" class="">
         </div>
