@@ -26,65 +26,69 @@ class LunetteController extends Controller
         return view('lunettes.create', compact('types', 'colors'));
     }
 
-   public function store(Request $request)
-{
-    // 1. Validation
-    $validated = $request->validate([
-        'name'=> 'required|string|unique:lunettes,name',
-        'price' => 'required',
-        'quantity' => 'required',
-        'description' => 'required|string|max:255',
-        'frameWidth' => 'required',
-        'type_id' => 'required|exists:types,id',
-        'lensWidth' => 'required',
-        'bridgeWidth' => 'required',
-        'templeWidth' => 'required',
-        'primaryimage' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'secondaryimage' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'tertiaryimage' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'quadriimage' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        'colors' => 'array',
-        'colors.*' => 'exists:colors,id',
-    ]);
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|unique:lunettes,name',
+            'price' => 'required|numeric',
+            'quantity' => 'required|integer',
+            'description' => 'required|string|max:255',
+            'frameWidth' => 'required|numeric',
+            'type_id' => 'required|exists:types,id',
+            'lensWidth' => 'required|numeric',
+            'bridgeWidth' => 'required|numeric',
+            'templeWidth' => 'required|numeric',
+            'primaryimage' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'secondaryimage' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'tertiaryimage' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'quadriimage' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'colors' => 'nullable|array',
+            'colors.*' => 'exists:colors,id',
+        ]);
 
-    // 2. Upload d'images
-    $imagePaths = [];
-    foreach (['primaryimage', 'secondaryimage', 'tertiaryimage', 'quadriimage'] as $field) {
-        if ($request->hasFile($field)) {
-            $imagePaths[$field] = $request->file($field)->store('images/lunettes', 'public');
+        // Sauvegarde images
+        $imagePaths = [];
+        foreach (['primaryimage', 'secondaryimage', 'tertiaryimage', 'quadriimage'] as $field) {
+            if ($request->hasFile($field)) {
+                $imagePaths[$field] = $request->file($field)->store('images/lunettes', 'public');
+            }
         }
+
+        // Création lunette
+        $lunette = Lunette::create([
+            'name' => $validated['name'],
+            'price' => $validated['price'],
+            'quantity' => $validated['quantity'],
+            'description' => $validated['description'],
+            'frameWidth' => $validated['frameWidth'],
+            'type_id' => $validated['type_id'],
+            'lensWidth' => $validated['lensWidth'],
+            'bridgeWidth' => $validated['bridgeWidth'],
+            'templeWidth' => $validated['templeWidth'],
+            'primaryimage' => $imagePaths['primaryimage'] ?? null,
+            'secondaryimage' => $imagePaths['secondaryimage'] ?? null,
+            'tertiaryimage' => $imagePaths['tertiaryimage'] ?? null,
+            'quadriimage' => $imagePaths['quadriimage'] ?? null,
+        ]);
+
+        // Association couleurs
+        $colorIds = $request->input('colors', []);
+        $colorIds = array_filter($colorIds);
+
+        $pivotData = [];
+        foreach ($colorIds as $id) {
+            $pivotData[$id] = []; // forcer la structure
+        }
+
+        if (!empty($pivotData)) {
+            $lunette->colors()->attach($pivotData);
+        }
+
+        return redirect()->route('lunettes.index')->with('success', 'Lunette créée avec succès.');
     }
 
-    // 3. Création de la lunette
-    $lunette = Lunette::create([
-        'name' => $validated['name'],
-        'price' => $validated['price'],
-        'quantity' => $validated['quantity'],
-        'description' => $validated['description'],
-        'frameWidth' => $validated['frameWidth'],
-        'type_id' => $validated['type_id'],
-        'lensWidth' => $validated['lensWidth'],
-        'bridgeWidth' => $validated['bridgeWidth'],
-        'templeWidth' => $validated['templeWidth'],
-        'primaryimage' => $imagePaths['primaryimage'] ?? null,
-        'secondaryimage' => $imagePaths['secondaryimage'] ?? null,
-        'tertiaryimage' => $imagePaths['tertiaryimage'] ?? null,
-        'quadriimage' => $imagePaths['quadriimage'] ?? null,
-    ]);
 
-    // $userIds = $request->input('user_ids',[]);
-    // 4. Association des couleurs (fix définitif ici)
-    // $colorIds = $validated['colors'] ?? [];
-    $colorIds = $request->input('colors',[]);
-    dd($colorIds);
-    // $colorIds = array_filter($colorIds, fn($id) => !empty($id)); // sécurité anti null
 
-    // if (!empty($colorIds)) {
-    //     $lunette->colors()->attach($colorIds,[]);
-    // }
-
-    // 5. Redirection
-    return redirect()->route('lunettes.index')->with('success', 'Lunette créée avec succès.');
-}
+ 
 
 }
