@@ -38,8 +38,8 @@ class Lunette extends Model
     /** 
      * Relation
     */
-    public function colors(){
-        return $this->belongsToMany(Lunette::class, 'lunette_color');
+    public function colors() {
+        return $this->belongsToMany(Color::class, 'lunette_color', 'lunette_id', 'color_id');
     }
-
+    
 }
