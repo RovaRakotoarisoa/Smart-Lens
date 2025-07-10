@@ -50,3 +50,5 @@ Route::put('/types/{type}', [TypeController::class,'update'])->name('types.updat
 Route::get('/lunettes', [LunetteController::class,'index'])->name('lunettes.index');
 Route::get('/lunettes/create', [LunetteController::class,'create'])->name('lunettes.create');
 Route::post('/lunettes/store', [LunetteController::class,'store'])->name('lunettes.store');
+Route::get('/lunettes/{lunette}/edit', [LunetteController::class,'edit'])->name('lunettes.edit');
+Route::put('/lunettes/{lunette}', [LunetteController::class,'update'])->name('lunettes.update');
