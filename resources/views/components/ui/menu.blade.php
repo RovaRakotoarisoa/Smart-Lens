@@ -11,7 +11,7 @@
         </ul>
     </nav>
     <div class="flex gap-2">
-        <a href="" class="p-2 bg-blue-300 rounded">register</a>
-        <a href="" class="p-2 bg-blue-300 rounded">login</a>
+        <a href="{{ route('register')}} " class="p-2 bg-blue-300 rounded">register</a>
+        <a href="{{ route('login')}} " class="p-2 bg-blue-300 rounded">login</a>
     </div>
 </menu>

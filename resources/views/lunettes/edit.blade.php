@@ -21,7 +21,6 @@
         </div>
         <div>
             <label for="type_id">Type: </label>
-            {{-- <input type="number" name="price" id="price" class=""> --}}
             <select name="type_id" id="">
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}">{{ $type->type }}</option>
@@ -66,7 +65,7 @@
             <input type="file" name="tertiaryimage" value="{{ $lunette->tertiaryimage }}" id="tertiaryimage" class="">
         </div>
         <div>
-            <label for="quadriimage">Quaternary frame: </label>
+            <label for="quadriimage">Quaternary frame: </label> 
             <input type="file" name="quadriimage" value="{{ $lunette->quadriimage }}" id="quadriimage" class="">
         </div>
         <button>Valider</button>

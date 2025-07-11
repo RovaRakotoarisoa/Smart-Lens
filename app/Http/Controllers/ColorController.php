@@ -27,7 +27,7 @@ class ColorController extends Controller
         // Validate
         $request->validate([
                 'color_name' => 'required|string|unique:colors,color_name',
-                'code_color' => 'required'
+                'code_color' => 'nullable'
         ]);
         
         // Create
@@ -55,7 +55,7 @@ class ColorController extends Controller
         // Validation
         $request->validate([
             'color_name' => 'required|string|unique:colors,color_name,'.$id,
-            'code_color' => 'required|string',
+            'code_color' => 'nullable|string',
         ]);
 
         $color = Color::findOrFail($id);

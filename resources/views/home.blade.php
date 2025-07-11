@@ -1,4 +1,5 @@
 <x-layout>
+    <x-ui.sidebar />
     <section class="herosection">
         Herosection
     </section>

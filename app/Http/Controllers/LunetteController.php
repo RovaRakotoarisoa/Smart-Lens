@@ -145,7 +145,7 @@ class LunetteController extends Controller
         // Synchronise a value of id of lunette and id of color in pivot table
         $lunette->colors()->sync($colorIds);
 
-        /** Redirectioin */
+        /** Redirection */
         return redirect()->route('lunettes.index')->with('success', 'Lunette mise à jour avec succès.');
     }
 
