@@ -1,4 +1,4 @@
-<side class="w-64 bg-purple-300 shadow-md fixed left-0 top-0 h-full p-4 text-white">
+<side class="w-64 bg-purple-300 fixed left-0 top-[5.5rem] h-full p-4 text-white">
     {{-- Logo de l'app --}}
     <h2 class="text-xl text-white font-bold mb-4 pb-4 border-b-2 border-gray-300/30">GESTION USER</h2>
 
