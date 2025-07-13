@@ -2,9 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\LunetteController;
+use App\Http\Controllers\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -23,6 +26,8 @@ Route::middleware([
 Route::get('/', function () {
     return view('home');
 });
+
+
 
 /**
  * All route for Color
@@ -52,3 +57,12 @@ Route::get('/lunettes/create', [LunetteController::class,'create'])->name('lunet
 Route::post('/lunettes/store', [LunetteController::class,'store'])->name('lunettes.store');
 Route::get('/lunettes/{lunette}/edit', [LunetteController::class,'edit'])->name('lunettes.edit');
 Route::put('/lunettes/{lunette}', [LunetteController::class,'update'])->name('lunettes.update');
+
+/**
+ * All route for User
+ */
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{user}', [UserController::class,'update'])->name('users.update');
