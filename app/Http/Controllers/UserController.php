@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //Authorizattion
+        //Authorization
         // Gate::authorize('can-crud');
 
         return view('users.create');  

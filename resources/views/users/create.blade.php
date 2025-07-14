@@ -4,8 +4,8 @@
         <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data" id="formUser">
             @csrf
             @method('POST')
-
-             <div>
+            
+            <div>
                 <label id="name" for="name">Name :</label>
                 <input type="text" name="name">
             </div>
