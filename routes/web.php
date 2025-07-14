@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-
+// This is For logout Route
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\TypeController;
@@ -27,7 +28,10 @@ Route::get('/', function () {
     return view('home');
 });
 
-
+/**
+ * This is route for LOGOUT or Deconnexion
+ */
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 /**
  * All route for Color
