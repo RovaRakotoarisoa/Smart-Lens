@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Lunette;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+// use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LunettePolicy
 {

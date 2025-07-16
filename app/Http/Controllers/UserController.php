@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(10);
+        // $users = User::latest()->paginate(10);
+        $users = User::all();
 
         return view('users.index',['users'=>$users]);
     }
@@ -25,8 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //Authorization
-        // Gate::authorize('can-crud');
+        // //Authorization
 
         return view('users.create');  
     }
@@ -37,7 +37,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //Authorizattion
-        // Gate::authorize('can-crud');
+
 
         //validate
         $request-> validate([ 
@@ -80,9 +80,6 @@ class UserController extends Controller
         //Authorization
 
         //can edit if this is a profile of this user
-        // Gate::authorize('can-edit-profile');
-        
-        // Gate::authorize('can-crud');
 
         $user = User::findOrFail($id);
         return view('users.edit', compact('user'));
@@ -93,8 +90,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //Authorizattion
-        // Gate::authorize('can-crud');
+        //Authorization
 
         //validate
         $request->validate([
@@ -136,7 +132,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         //Authorizattion
-        // Gate::authorize('can-crud');
 
         User::findOrFail($id)->delete();
         return redirect()->route('users.index')->with('success', 'Utilisateur supprimé avec succès!');

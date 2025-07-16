@@ -7,6 +7,7 @@ use App\Models\Lunette;
 use App\Models\Type;
 use App\Models\Color;
 
+use Illuminate\Support\Facades\Gate;
 class LunetteController extends Controller
 {
     public function index()
@@ -18,10 +19,12 @@ class LunetteController extends Controller
 
     public function create()
     {
-        // Authorization
+        //Authorization
+        // Gate::authorize('lunette_create');
 
         $types = Type::all();
         $colors = Color::all();
+
         // Redirection
         return view('lunettes.create', compact('types', 'colors'));
     }
