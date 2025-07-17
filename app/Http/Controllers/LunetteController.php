@@ -7,9 +7,15 @@ use App\Models\Lunette;
 use App\Models\Type;
 use App\Models\Color;
 
-use Illuminate\Support\Facades\Gate;
+// use Illuminate\Support\Facades\Gate;
+
+// Use it for use method authorize
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class LunetteController extends Controller
 {
+    use AuthorizesRequests;
+
+
     public function index()
     {
         $lunettes = Lunette::all();
@@ -21,6 +27,8 @@ class LunetteController extends Controller
     {
         //Authorization
         // Gate::authorize('lunette_create');
+
+        $this->authorize('create');
 
         $types = Type::all();
         $colors = Color::all();
