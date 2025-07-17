@@ -28,8 +28,8 @@ class AppServiceProvider extends ServiceProvider
          * GATE
          */
         // GATE for Lunette
-        Gate::define('lunette_create', fn(User $user) => $user->role === 'admin');
-        Gate::define('lunette_edit', fn(User $user) => $user->role === 'admin');
-        Gate::define('lunette_delete', fn(User $user) => $user->role === 'admin');
+        // Gate::define('lunette_create', fn(User $user) => $user->role === 'admin');
+        // Gate::define('lunette_edit', fn(User $user) => $user->role === 'admin');
+        // Gate::define('lunette_delete', fn(User $user) => $user->role === 'admin');
     }
 }

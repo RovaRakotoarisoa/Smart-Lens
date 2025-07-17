@@ -4,11 +4,13 @@ namespace App\Policies;
 
 use App\Models\Lunette;
 use App\Models\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 // use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LunettePolicy
 {
+    use HandlesAuthorization;
     /**
      * Determine whether the user can view any models.
      */
@@ -30,7 +32,10 @@ class LunettePolicy
      */
     public function create(User $user): bool
     {
-        return $user->role === 'admin';
+        if ($user->role == 'admin') {
+            return true;
+        }
+        return false;
     }
 
     /**
