@@ -7,6 +7,13 @@
 }
 
 :root{
+
+    /* bg-Color */
+    --bg-color-primary: grey;
+    --bg-color-secondary: purple;
+    --bg-color-tertiary: red;
+
+    /* Font*/
     --font-size: 30px;
 
     /* Boutton */
@@ -14,18 +21,25 @@
     --button-bg-2: #f9fafb;
     --button-2-b-color: #D5D7DA;
     --button-rounded: 10px;
+    --button-height: 43px;
 }
+
+/* ------------------------------------------------------------------------- */
+/* on peux APPLIQUER le @apply a une CLASSE alors NE pas ABUSER des VAR */
+/* ------------------------------------------------------------------------- */
 
 
 /*
 *For all about BOUTTON
 */
-button.primary-button {
+.primary-button {
+    height: var(--button-height);
     padding: var(--button-p);
     border-radius: var(--button-rounded);
 }
 
-button.secondary-button {
+.secondary-button {
+    height: var(--button-height);
     background-color: var(--button-bg-2);
     padding: var(--button-p);
     border: 1px solid var(--button-2-b-color);
@@ -33,7 +47,8 @@ button.secondary-button {
 }
 
 
-button.tertiary-button {
+.tertiary-button {
+    height: var(--button-height);
     padding: var(--button-p);
     /* @apply text-2xl; */
 }
