@@ -17,7 +17,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body>
+    <body class="bg-color-primary">
         <x-ui.header>
             <x-ui.menu />
         </x-ui.header>
