@@ -1,6 +1,8 @@
 <x-layout>
-    This is index TYPE
-    @foreach ($types as $type)
-        <div class=" text-blue-400">{{ $type->type }}</div>
-    @endforeach
+    <x-ui.sidebar />
+    <x-container>
+        @foreach ($types as $type)
+            <div class=" text-blue-400">{{ $type->type }}</div>
+        @endforeach
+    </x-container>
 </x-layout>
