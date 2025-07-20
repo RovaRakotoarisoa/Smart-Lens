@@ -9,7 +9,7 @@
 :root{
 
     /* bg-Color */
-    --bg-color-primary: grey;
+    --bg-color-primary: #fffbf2;
     --bg-color-secondary: purple;
     --bg-color-tertiary: red;
 
@@ -28,6 +28,9 @@
 /* on peux APPLIQUER le @apply a une CLASSE alors NE pas ABUSER des VAR */
 /* ------------------------------------------------------------------------- */
 
+.bg-color-primary{
+    background-color: var(--bg-color-primary);
+}
 
 /*
 *For all about BOUTTON
@@ -36,6 +39,7 @@
     height: var(--button-height);
     padding: var(--button-p);
     border-radius: var(--button-rounded);
+    /* @apply text-white; */
 }
 
 .secondary-button {
