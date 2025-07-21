@@ -1,4 +1,4 @@
-<menu class="fixed w-full top-0 left-0 py-6 pl-6 pr-12 bg-red-100 flex justify-between items-center">
+<menu class="fixed w-full top-0 left-0 py-6 pl-8 pr-12 bg-red-100 flex justify-between items-center">
     <div>
         <a href="" class=" font-semibold text-3xl">SmartLens</a>
     </div>
