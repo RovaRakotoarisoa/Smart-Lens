@@ -8,6 +8,10 @@
 
 :root{
 
+    /* Disposition */
+    --grid-cols: 1fr 1fr .2fr .3fr;
+    --grid-cols-2: .3fr .3fr;
+
     /* bg-Color */
     --bg-color-primary: #fffbf2;
     --bg-color-secondary: purple;
@@ -55,4 +59,15 @@
     height: var(--button-height);
     padding: var(--button-p);
     /* @apply text-2xl; */
+}
+
+
+.grid-custom-1 {
+    display: grid;
+    grid-template-columns: var(--grid-cols);
+    row-gap: 20px;
+}
+.grid-custom-2 {
+    display: grid;
+    grid-template-columns: var(--grid-cols-2);
 }
