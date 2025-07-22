@@ -1,30 +1,45 @@
 <x-layout>
     <x-ui.sidebar />
     <x-container>
-        <div class="main-container px-8 flex flex-col gap-10">
-            <div class="bloc-main-cta flex justify-end items-center">
+        <div class="main-container px-4 flex flex-col gap-6">
+            <div class="bloc-main-cta flex justify-end items-center bg-white p-8">
                 <div>
                     <x-a-link href="{{ route('users.create')}} " class="primary-button bg-green-400">
                         Ajouter
                     </x-a-link>
                 </div>
             </div>
-            <div>
+            <div class="bg-white p-4 border border-b border-grey/65">
                 <div>
-                    <div class="grid-custom-1">
-                        <div>Name</div>
-                        <div>Email</div>
-                        <div>Role</div>
-                        <div>Action</div>
+                    <div class="grid-custom-1 p-2 border-b border-grey/65">
+                        <div class=" font-bold text-xs opacity-70 rounded">NOM</div>
+                        <div class=" font-bold text-xs opacity-70 rounded">EMAIL</div>
+                        <div class=" font-bold text-xs opacity-70 rounded">ROLE</div>
+                        <div class=" font-bold text-xs opacity-70 rounded">ACTION</div>
                     </div>
                     @foreach ($users as $user)    
                         <div class=" grid grid-rows-1">
-                            <div class="grid-custom-1 py-2">
-                                <div class="">{{ $user->name}}</div>
+                            <div class="grid-custom-1 py-2 items-center">
+                                <div class="flex items-center gap-2">
+                                    <div>
+                                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1 8C1 6.89543 1.89543 6 3 6H3.92963C4.59834 6 5.2228 5.6658 5.59373 5.1094L6.40627 3.8906C6.7772 3.3342 7.40166 3 8.07037 3H11.9296C12.5983 3 13.2228 3.3342 13.5937 3.8906L14.4063 5.1094C14.7772 5.6658 15.4017 6 16.0704 6H17C18.1046 6 19 6.89543 19 8V15C19 16.1046 18.1046 17 17 17H3C1.89543 17 1 16.1046 1 15V8ZM14.5 11C14.5 13.4853 12.4853 15.5 10 15.5C7.51472 15.5 5.5 13.4853 5.5 11C5.5 8.51472 7.51472 6.5 10 6.5C12.4853 6.5 14.5 8.51472 14.5 11ZM10 14C11.6569 14 13 12.6569 13 11C13 9.34315 11.6569 8 10 8C8.34315 8 7 9.34315 7 11C7 12.6569 8.34315 14 10 14Z" fill="#0F172A"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span>{{ $user->name}}</span>
+                                        <small>{{$user->id}}</small>
+                                    </div>
+                                </div>
                                 <div class="">{{ $user->email}}</div>
                                 <div class="">{{ $user->role}}</div>
 
-                                <div class="grid-custom-2">
+                                <div class="grid-custom-2 !justify-center">
+                                    {{-- <x-a-link href="" class="tertiary-button !p-0 !h-0">
+                                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1 8C1 6.89543 1.89543 6 3 6H3.92963C4.59834 6 5.2228 5.6658 5.59373 5.1094L6.40627 3.8906C6.7772 3.3342 7.40166 3 8.07037 3H11.9296C12.5983 3 13.2228 3.3342 13.5937 3.8906L14.4063 5.1094C14.7772 5.6658 15.4017 6 16.0704 6H17C18.1046 6 19 6.89543 19 8V15C19 16.1046 18.1046 17 17 17H3C1.89543 17 1 16.1046 1 15V8ZM14.5 11C14.5 13.4853 12.4853 15.5 10 15.5C7.51472 15.5 5.5 13.4853 5.5 11C5.5 8.51472 7.51472 6.5 10 6.5C12.4853 6.5 14.5 8.51472 14.5 11ZM10 14C11.6569 14 13 12.6569 13 11C13 9.34315 11.6569 8 10 8C8.34315 8 7 9.34315 7 11C7 12.6569 8.34315 14 10 14Z" fill="#0F172A"/>
+                                        </svg>
+                                    </x-a-link> --}}
                                     <x-a-link href="{{ route('users.edit', $user->id) }}" class="tertiary-button !p-0 !h-0">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M21.7312 2.26884C20.706 1.24372 19.044 1.24372 18.0188 2.26884L16.8617 3.42599L20.574 7.1383L21.7312 5.98116C22.7563 4.95603 22.7563 3.29397 21.7312 2.26884Z" fill="#62679F"/>
