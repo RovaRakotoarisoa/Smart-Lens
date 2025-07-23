@@ -28,7 +28,7 @@ class LunetteController extends Controller
         //Authorization
         // Gate::authorize('lunette_create');
 
-        $this->authorize('create');
+        // $this->authorize('create');
 
         $types = Type::all();
         $colors = Color::all();
@@ -39,6 +39,10 @@ class LunetteController extends Controller
 
     public function store(Request $request)
     {
+        // Authorization
+        // $this->authorize('create');
+
+
         // Validation
         $validated = $request->validate([
             'name' => 'required|string|unique:lunettes,name',

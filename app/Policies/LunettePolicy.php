@@ -30,11 +30,11 @@ class LunettePolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(User $user)
     {
-        if ($user->role == 'admin') {
-            return true;
-        }
+        // if ($user->role == 'admin') {
+        //     return true;
+        // }
         return false;
     }
 
