@@ -1,10 +1,5 @@
-@props(
-        [
-            'enctype' => false,
-            'method' => 'POST',
-            'isPost'=> true
-        ]
-    )
+@props([ 'enctype' => false, 'method' => 'POST', 'isPost'=> true ])
+
 @php
     if ($enctype){
         $enctype ="multipart/form-data";

@@ -3,45 +3,47 @@
     <x-container>
         <div class="">This is create page for users</div>
         <div>
-            <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data" id="formUser" class=" max-w-3xl flex flex-col mx-auto mt-8">
-                @csrf
-                @method('POST')
-                
+            <x-form action="{{ route('users.store') }}" :enctype="true" id="formUser" class=" max-w-3xl flex flex-col mx-auto mt-8">
                 <div class="mb-4">
-                    {{-- <label for="profile"></label> --}}
                     <input type="file" name="avatar" id="avatar">
+                    <x-input-error for="avatar" />
                 </div>
                 <div class="columns-2">
                     <div class="flex flex-col">
-                        <label id="name" for="name">Name :</label>
-                        <input type="text" name="name" class="input-custom">
+                        <x-label for="name">Name </x-label>
+                        <x-input name="name" class="input-custom" />
+                        <x-input-error for="name" />
                     </div>
                     <div class="flex flex-col">
-                        <label for="email">Email </label>
-                        <input type="email" name="email" class="input-custom">
+                        <x-label for="email">Email </x-label>
+                        <x-input type="email" name="email" class="input-custom" />
+                        <x-input-error for="email" />
                     </div>
                 </div>
                 
                 <div class="flex flex-col">
-                    <label for="password">Password </label>
-                    <input type="password" name="password" class="input-custom">
+                    <x-label for="password">Password </x-label>
+                    <x-input type="password" name="password" class="input-custom" />
+                    <x-input-error for="password" />
                 </div>
                 <div class="flex flex-col">
-                    <label for="password_confirmation">Confirm </label>
-                    <input type="password" name="password_confirmation" class="input-custom">
+                    <x-label for="password_confirmation">Confirm </x-label>
+                    <x-input type="password" name="password_confirmation" class="input-custom" />
+                    <x-input-error for="password_confirmation" />
                 </div>
                 <div class="flex flex-col">
-                    <label for="role">Role </label>
-                    <select name="role" id="" class="input-custom">
+                    <x-label for="role">Role </x-label>
+                    <select name="role" id="" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm input-custom">
                         <option value="" disabled selected>-- Choisissez un rôle --</option>
                         <option value="user">User</option>
                         <option value="admin">Admin</option>
                     </select>
+                    <x-input-error for="role" />
                 </div>
                 <div class="flex flex-col">
-                    <button>Valider</button>
+                    <button class=" primary-button bg-purple-500">Valider</button>
                 </div>
-            </form>
+            </x-form>
         </div>
     </x-container>
 </x-layout>
