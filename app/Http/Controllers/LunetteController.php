@@ -28,7 +28,7 @@ class LunetteController extends Controller
         //Authorization
         // Gate::authorize('lunette_create');
 
-        // $this->authorize('create');
+        $this->authorize('create', Lunette::class);
 
         $types = Type::all();
         $colors = Color::all();

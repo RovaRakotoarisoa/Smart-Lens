@@ -32,10 +32,7 @@ class LunettePolicy
      */
     public function create(User $user)
     {
-        // if ($user->role == 'admin') {
-        //     return true;
-        // }
-        return false;
+        return $user->role === 'admin';
     }
 
     /**
