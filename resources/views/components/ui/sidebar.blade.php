@@ -12,29 +12,18 @@
             </div>
         </x-a-link>
         <x-a-link href="{{ route('lunettes.index') }}" class="flex items-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Monture centrale -->
-                <rect x="95" y="45" width="10" height="10" fill="black" />
-
-                <!-- Pont de nez -->
-                <line x1="90" y1="50" x2="110" y2="50" stroke="black" stroke-width="2" />
-
-                <!-- Verre gauche -->
-                <circle cx="60" cy="50" r="30" stroke="black" stroke-width="3" fill="none" />
-                <!-- Verre droit -->
-                <circle cx="140" cy="50" r="30" stroke="black" stroke-width="3" fill="none" />
-
-                <!-- Branche gauche -->
-                <line x1="30" y1="50" x2="0" y2="40" stroke="black" stroke-width="3" />
-                <!-- Branche droite -->
-                <line x1="170" y1="50" x2="200" y2="40" stroke="black" stroke-width="3" />
+            <svg width="25" height="25" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Monture lunettes -->
+                <circle cx="14" cy="24" r="6" stroke="#4B5563" stroke-width="2"/>
+                <circle cx="30" cy="24" r="6" stroke="#4B5563" stroke-width="2"/>
+                <line x1="20" y1="24" x2="24" y2="24" stroke="#4B5563" stroke-width="2" stroke-linecap="round"/>
             </svg>
             <div>
                 Lunette
             </div>
         </x-a-link>
         <x-a-link href="{{ route('colors.index') }}" class="flex items-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2C6.48 2 2 6.02 2 11c0 4.97 4.03 9 9 9h1c1.1 0 2-.9 2-2s-.9-2-2-2H9.5c-.83 0-1.5-.67-1.5-1.5S8.67 13 9.5 13H13c3.31 0 6-2.69 6-6S15.31 2 12 2z" fill="#555"/>
                 <circle cx="6.5" cy="11.5" r="1.5" fill="#FF5252"/>
                 <circle cx="9.5" cy="7.5" r="1.5" fill="#FFA726"/>
@@ -46,13 +35,17 @@
             </div>
         </x-a-link>
         <x-a-link href="{{ route('types.index') }}" class="flex items-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="white" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 
-            2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10ZM12.5 7.5C12.5 8.88071 11.3807 10 
-            10 10C8.61929 10 7.5 8.88071 7.5 7.5C7.5 6.11929 8.61929 5 10 5C11.3807 5 12.5 6.11929 12.5 
-            7.5ZM10 12C8.04133 12 6.30187 12.9385 5.20679 14.3904C6.39509 15.687 8.1026 16.5 10 16.5C11.8974 
-            16.5 13.6049 15.687 14.7932 14.3904C13.6981 12.9385 11.9587 12 10 12Z" fill="white"/>
+            <svg width="25" height="25" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Monture lunettes -->
+                <circle cx="14" cy="24" r="6" stroke="#4B5563" stroke-width="2"/>
+                <circle cx="30" cy="24" r="6" stroke="#4B5563" stroke-width="2"/>
+                <line x1="20" y1="24" x2="24" y2="24" stroke="#4B5563" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- Tag représentant le "type" -->
+                <path d="M34 16h6a2 2 0 0 1 2 2v6l-4 4-6-6v-4a2 2 0 0 1 2-2z" fill="#6366F1"/>
+                <circle cx="37" cy="19" r="1.5" fill="white"/>
             </svg>
+
             <div>
                 Type
             </div>
