@@ -12,7 +12,9 @@
                         </div>
                         <div>
                             <x-label for="description">Description: </x-label>
-                            <x-input type="text" name="description" id="description" class="w-full" />
+                            <textarea name="description" id="description" cols="30" rows="10">
+                            </textarea>
+                            {{-- <x-input type="text" name="description" id="description" class="w-full" /> --}}
                         </div>
                     </div>
                     <div class="bg-white p-4">
@@ -27,12 +29,12 @@
                         </div>
                         
                         <div class="mb-4">
-                            <x-label for="type_id">Type: </x-label>
-                            <select name="type_id" id="" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm input-custom w-full">
-                                @foreach ($types as $type)
-                                    <option value="{{ $type->id }}">{{ $type->type }}</option>
-                                @endforeach
-                            </select>
+                            @foreach ($types as $type)
+                                <x-label>
+                                    {{ $type->type }}
+                                    <input type="radio" name="type_id" value="{{$type->id}}">
+                                </x-label>
+                            @endforeach
                         </div>
                         <div>
                             <h4>Couleurs disponibles :</h4>
@@ -48,7 +50,7 @@
     
                 <div class="grid grid-cols-1">
                     <div>
-                        <h2>Frame</h2>
+                        <h2>Dimension</h2>
                     </div>
                 </div>
             </div>
