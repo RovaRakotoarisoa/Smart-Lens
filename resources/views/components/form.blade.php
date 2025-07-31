@@ -5,7 +5,9 @@
         $enctype ="multipart/form-data";
     }
     if ($isPost !== true){
-        $isPost ="PUT";
+        $isPost ='PUT';
+    }else {
+        $isPost = 'POST';
     }
 @endphp
 

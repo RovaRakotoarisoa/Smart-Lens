@@ -3,7 +3,7 @@
     <x-container>
         <div class="">This is create page for users</div>
         <div>
-            <x-form action="{{ route('users.store') }}" :enctype="true" id="formUser" class=" max-w-3xl flex flex-col mx-auto mt-8">
+            <x-form action="{{ route('users.store') }}" :isPost="true" :enctype="true" id="formUser" class=" max-w-3xl flex flex-col mx-auto mt-8">
                 <div class="mb-4">
                     <input type="file" name="avatar" id="avatar">
                     <x-input-error for="avatar" />

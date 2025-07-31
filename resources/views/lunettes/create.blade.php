@@ -1,7 +1,7 @@
 <x-layout>
     <x-ui.sidebar />
     <x-container>
-        <x-form action="{{ route('lunettes.store') }}" :enctype="true" id="formType">
+        <x-form action="{{ route('lunettes.store') }}" :isPost="true" :enctype="true" id="formType">
             <div class="bg-red-200">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="p-4 bg-white">
@@ -14,7 +14,6 @@
                             <x-label for="description">Description: </x-label>
                             <textarea name="description" id="description" cols="30" rows="10">
                             </textarea>
-                            {{-- <x-input type="text" name="description" id="description" class="w-full" /> --}}
                         </div>
                     </div>
                     <div class="bg-white p-4">
