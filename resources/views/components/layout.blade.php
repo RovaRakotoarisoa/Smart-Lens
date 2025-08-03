@@ -17,9 +17,10 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="bg-color-primary">
+    <body class=" bg-gray-50">
         <x-ui.header>
             <x-ui.menu />
+            <x-ui.menu-user />
         </x-ui.header>
         <main class="mt-20 p-6">
             {{ $slot }}

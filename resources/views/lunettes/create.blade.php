@@ -100,7 +100,6 @@
         <x-form action="{{ route('lunettes.store') }}" :isPost="true" :enctype="true" id="formType">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                {{-- 📝 Description --}}
                 <div class="bg-white rounded-xl shadow-md p-5">
                     <h2 class="text-lg font-semibold text-gray-700 mb-4">📝 Description</h2>
 
@@ -118,7 +117,6 @@
                     </div>
                 </div>
 
-                {{-- 📋 Détails --}}
                 <div class="bg-white rounded-xl shadow-md p-5">
                     <h2 class="text-lg font-semibold text-gray-700 mb-4">📋 Détails</h2>
 
@@ -162,7 +160,6 @@
                     </div>
                 </div>
 
-                {{-- 📐 Dimensions --}}
                 <div class="bg-white rounded-xl shadow-md p-5">
                     <h2 class="text-lg font-semibold text-gray-700 mb-4">📐 Dimensions</h2>
                     <div class="grid grid-cols-2 gap-4">
@@ -176,7 +173,7 @@
                                 <x-label for="{{ $field }}" class="text-sm font-medium text-gray-800">{{ $label }}</x-label>
                                 <x-input type="number" name="{{ $field }}" id="{{ $field }}"
                                     class="mt-1 w-full px-3 py-2 border-gray-300 rounded-md" />
-                                <x-input-error for="{{ $label }}" />
+                                <x-input-error for="{{ $field }}" />
                             </div>
                         @endforeach
                     </div>
@@ -198,7 +195,7 @@
                             <input type="file" name="{{ $id }}" id="{{ $id }}"
                                 class="mt-1 w-full text-sm file:text-gray-600 file:py-1 file:px-2 border border-gray-300 rounded-md"
                                 onchange="previewImage(this)">
-                            <x-input-error for="{{ $label }}" />
+                            <x-input-error for="{{ $id }}" />
                             <img id="{{ $id }}_preview" class="mt-2 w-full h-32 object-cover rounded hidden" />
                         </div>
                     @endforeach
